@@ -1,0 +1,418 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: #fafafa;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    position: absolute; /* Fijo en la parte superior */
+    width: 90%;
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+    border-bottom-left-radius: 15px; /* Esquina inferior izquierda redondeada */
+    border-bottom-right-radius: 15px; /* Esquina inferior derecha redondeada */
+    left: 50%; /* Centra el div horizontalmente */
+    transform: translateX(-50%); /* Ajuste para centrar */
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 20px;
+}
+
+.nav {
+    position: relative;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #141414;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #3b6a23; /* Verde oscuro al pasar el cursor */
+}
+
+/* Hamburguesa */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 24px;
+    height: 3px;
+    background-color: #548b2e;
+    transition: 0.3s;
+}
+
+/* Cambios para que se transforme en cruz */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0; /* Oculta la segunda barra */
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .header{
+        padding: 10px 0px;
+        z-index: 10;
+    }
+    .logo img{
+        padding: 0px 40px 
+    }
+    .nav-links {
+        position: absolute; /* Posición absoluta para el menú desplegable */
+        top: 30px; /* Justo debajo del header */
+        right: 0px;
+        left: auto;
+        background-color: #fafafa; /* Fondo blanco */
+        border-radius: 0px 0px 15px 15px;
+        width: 200px;
+        flex-direction: column;
+        gap: 40px; /* Sin espacio extra entre elementos */
+        text-align: center;
+        display: none; /* Inicialmente oculto */
+        padding: 20px 10px; /* Espaciado vertical */
+        z-index: 9; /* Asegura que esté encima de otros elementos */
+    }
+
+    .nav-links.active {
+        display: flex; /* Muestra cuando se activa */
+        animation: fadeIn 0.3s ease; /* Añadido de animación al mostrar */
+    }
+
+    .nav-links a {
+        font-size: 18px; /* Tamaño de fuente */
+        padding: 0px 0px; /* Espaciado adicional para mejorar la apariencia */
+        width: 100%; /* Ocupa todo el ancho */
+        border-bottom: 1px solid #f0f0f0; /* Línea separadora */
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none; /* Sin línea en el último elemento */
+    }
+
+    .hamburger {
+        display: flex; /* Muestra la hamburguesa en móviles */
+        padding: 0px 40px 0px 0px;
+    }
+}
+
+/* Animación para mostrar el menú */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px); /* Se mueve un poco hacia arriba */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.hero {
+    margin: 0;
+    padding: 0;
+    background-image: url(foto_jardin_1.jpg); /* Imagen de fondo de jardinería */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 100vh; /* Ajusta la altura según lo que necesites */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Oscurece la imagen de fondo */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #548b2e; /* Verde principal */
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: #3b6a23; /* Verde más oscuro en hover */
+}
+
+
+.contacto {
+    background-color: #ffffff; /* Fondo blanco */
+    text-align: center;
+    padding: 40px 20px;
+    color: #548b2e; /* Verde para el texto */
+}
+
+.contacto h2 {
+    font-size: 24px;
+    color: #232423;
+    margin-bottom: 20px;
+}
+
+.contacto p {
+    font-size: 18px;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    color: #333333;
+}
+
+.contacto-info {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsivo */
+    gap: 20px;
+    justify-items: center;
+}
+
+.contacto-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 18px;
+    color: #548b2e; /* Color verde */
+    text-decoration: none; /* Eliminar subrayado */
+    transition: color 0.3s ease; /* Transición para el hover */
+}
+
+.contacto-item i {
+    font-size: 24px;
+    color: #548b2e; /* Íconos verdes */
+}
+
+/* Efecto hover */
+.contacto-item:hover {
+    color: #3b6a23; /* Verde oscuro en hover */
+}
+
+.contacto-item:hover i {
+    color: #3b6a23; /* Ícono verde oscuro en hover */
+}
+
+
+.servicios {
+    width: 100%;
+    text-align: center;
+    padding: 40px 40px;
+    background-color: #ffffff;
+}
+
+.servicios h2 {
+    font-size: 24px;
+    color: #232423; /* Verde especificado */
+}
+
+.servicios p {
+    font-size: 18px;
+    color: #4a4a4a;
+    max-width: 900px;
+    margin: 10px auto 40px;
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px 90px;
+}
+
+.servicio-card {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.servicio-card:hover {
+    transform: translateY(-5px);
+}
+
+.servicio-card i {
+    font-size: 40px;
+    color: #548b2e; /* Color del icono */
+    margin-bottom: 10px;
+}
+
+.servicio-card h3 {
+    font-size: 20px;
+    color: #548b2e;
+    margin-bottom: 10px;
+}
+
+.servicio-card p {
+    font-size: 16px;
+    color: #4a4a4a;
+}
+
+.galeria {
+    text-align: center;
+    padding: 40px 40px;
+    background-color: #fffdfd; /* Fondo ligero para la sección */
+}
+
+.galeria h2 {
+    font-size: 24px;
+    color: #232423; /* Color verde para el título */
+    margin-bottom: 10px;
+}
+
+.galeria p {
+    font-size: 18px;
+    color: #333; /* Color del texto */
+    margin-bottom: 30px;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta el número de columnas automáticamente */
+    gap: 15px; /* Espacio entre las imágenes */
+}
+
+.galeria-grid img {
+    width: 100%; /* Asegura que las imágenes ocupen todo el ancho de la celda */
+    height: 200px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Mantiene la relación de aspecto y recorta la imagen si es necesario */
+    border-radius: 8px; /* Bordes redondeados */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves para efectos */
+}
+
+.galeria-grid img:hover {
+    transform: scale(1.05); /* Aumenta ligeramente la imagen al pasar el mouse */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra al pasar el mouse */
+}
+
+.WhatsApp{
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    padding: 10px;
+}
+
+.WhatsApp:hover{
+    transform: scale(1.20);
+    filter:drop-shadow(0 4px 15px rgba(0, 0, 0, 0.2));
+
+}
+
+.footer {
+    background-color: white; /* Fondo blanco */
+    border-top: 1px solid #23242354; /* Borde superior verde */
+    color: #333; /* Color del texto */
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column; /* Cambia a columna en pantallas más pequeñas */
+    align-items: center; /* Centra los elementos */
+    text-align: center; /* Alinea el texto a la izquierda */
+}
+
+.footer-logo img {
+    width: 150px; /* Limita el ancho del logo */
+}
+
+.footer-logo, .footer-links, .footer-contacto, .footer-ubicacion {
+    margin: 15px 0px; /* Espacio entre secciones */
+}
+
+.footer-links ul, .footer-contacto ul {
+    list-style: none; /* Elimina puntos de lista */
+    padding: 0; /* Elimina padding */
+    
+}
+
+.footer-links li, .footer-contacto li, .footer-ubicacion p {
+    margin: 10px 0; /* Espacio entre los enlaces */
+    text-align: center;
+}
+
+.footer a {
+    color: #333; /* Color de los enlaces */
+    text-decoration: none; /* Sin subrayado */
+    transition: color 0.3s; /* Transición suave para el hover */
+    display: flex; /* Permite el uso de iconos alineados con texto */
+    align-items: center; /* Alinea verticalmente el icono y el texto */
+    
+}
+
+.footer a:hover {
+    color: #548b2e; /* Color verde para el hover */
+}
+
+.footer i {
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+}
+
+@media (min-width: 768px) {
+    .footer {
+        flex-direction: row; /* Cambia a fila en pantallas más grandes */
+        justify-content: space-between; /* Distribuye el espacio entre secciones */
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .footer-logo, .footer-links, .footer-contacto, .footer-ubicacion {
+        flex: 1; /* Permite que cada sección ocupe el mismo ancho */
+        margin: 0; /* Elimina márgenes para el alineado */
+    }
+    .footer-ubicacion p{
+        text-align: left;
+    }
+}
+
+
