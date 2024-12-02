@@ -5,6 +5,9 @@
     scroll-behavior: smooth;
 }
 
+html, body{
+    overflow-x: hidden;
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -197,6 +200,7 @@
     text-align: center;
     padding: 40px 20px;
     color: #548b2e; /* Verde para el texto */
+    align-items: center;
 }
 
 .contacto h2 {
@@ -213,10 +217,11 @@
 }
 
 .contacto-info {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsivo */
-    gap: 20px;
+    justify-content: center;
+    gap: 50px;
     justify-items: center;
 }
 
