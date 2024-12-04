@@ -7,7 +7,7 @@
 
 html, body{
     overflow-x: hidden;
-
+}
 .header {
     display: flex;
     justify-content: space-between;
@@ -141,7 +141,7 @@ html, body{
 .hero {
     margin: 0;
     padding: 0;
-    background-image: url(foto_jardin_1.jpg); /* Imagen de fondo de jardinería */
+    background-image: url(img/foto_jardin_1.jpg); /* Imagen de fondo de jardinería */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -419,5 +419,3 @@ html, body{
         text-align: left;
     }
 }
-
-
